@@ -3,22 +3,20 @@ spring:
     url: jdbc:mysql://localhost:3306/authordb
     username: root
     password: Anish@0815
-    driver-class-name: com.mysql.cj.jdbc.Driver   # ✅ Corrected
+    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
 
-
-#resilience4J properties for fault tolerance handle
 resilience4j:
- circuitbreaker:
-  instances:
-   authorCB:
-    registerHealthIndicator: true
-    slidingWindowSize: 5
-    minimumNumberOfCalls: 3
-    failureRateThreshold: 50
-    waitDurationInOpenState: 5s
-    permittedNumberOfCallsInHalfOpenState: 2
-    automaticTransitionFromOpenToHalfOpenEnabled: true
+  circuitbreaker:
+    instances:
+      authorCB:
+        registerHealthIndicator: true
+        slidingWindowSize: 5
+        minimumNumberOfCalls: 3
+        failureRateThreshold: 50
+        waitDurationInOpenState: 5s
+        permittedNumberOfCallsInHalfOpenState: 2
+        automaticTransitionFromOpenToHalfOpenEnabled: true
