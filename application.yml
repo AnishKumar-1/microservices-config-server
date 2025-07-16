@@ -1,21 +1,19 @@
 spring:
- application:
-  name: config-default
+  application:
+    name: config-default
+
 eureka:
- client:
-  service-url:
-   defaultZone: http://eureka-server:8761/eureka
-  register-with-eureka: true
-  fetch-registry: true
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka
+    register-with-eureka: true
+    fetch-registry: true
 
-#actuator health exposure
 management:
- endpoints:
-  web:
-   exposure:
-    include: "*"
-  health:
-   show-details: always
-
-
-  
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
